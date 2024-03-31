@@ -41,6 +41,7 @@ class CalculateVacationPaymentUseCaseTest {
         final VacationPaymentIn vacationPaymentIn = new VacationPaymentIn(avgSalaryPerYear,
                 vacationDays, null);
         when(calculator.calculate(avgSalaryPerYear, vacationDays)).thenReturn(1.0);
+        calculateVacationPayment.execute(vacationPaymentIn);
     }
     @Test
     void calculate_whenStartsFromNotNull() {
@@ -64,8 +65,8 @@ class CalculateVacationPaymentUseCaseTest {
                 vacationDays, startsFrom);
         final double ifNotRealPay = 1.0;
         final double ifRealPay = 0.5;
-        when(calculator.calculate(avgSalaryPerYear, vacationDays)).thenReturn(1.0);
-        when(calculator.calculate(avgSalaryPerYear, 3)).thenReturn(0.5);
+        when(calculator.calculate(avgSalaryPerYear, vacationDays)).thenReturn(ifNotRealPay);
+        when(calculator.calculate(avgSalaryPerYear, 3)).thenReturn(ifRealPay);
         when(gateway.getAllWorkingDaysBetweenTwoDates(startsFrom, startsFrom.plusDays(vacationDays)))
                 .thenReturn(List.of(startsFrom, startsFrom, startsFrom));
         assertEquals(0.5, calculateVacationPayment.execute(vacationPaymentIn).vacationPay());
