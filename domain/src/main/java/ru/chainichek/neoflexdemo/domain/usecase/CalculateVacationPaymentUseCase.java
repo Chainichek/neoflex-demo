@@ -11,6 +11,9 @@ import ru.chainichek.neoflexdemo.domain.util.VacationPaymentCalculator;
 import java.time.LocalDate;
 import java.util.List;
 
+/**<h2>Сценарий использования вычисления суммы отпускных</h2>
+ * <p>Перед отправкой данных в калькулятор проводит различные валидации, проверки, а также сравнение (по возможности) с календарём рабочих дней</p>
+ */
 @Component
 public class CalculateVacationPaymentUseCase {
     private final ProductionCalendarGateway productionCalendarGateway;
@@ -18,8 +21,7 @@ public class CalculateVacationPaymentUseCase {
     private final double minAvgSalary;
     private final int minVacationDays;
 
-    /**<h2>Сценарий использования вычисления суммы отпускных</h2>
-     * <p>Перед отправкой данных в калькулятор проводит различные валидации, проверки, а также сравнение (по возможности) с календарём рабочих дней</p>
+    /**
      * @param productionCalendarGateway - гейтвей для получения календаря рабочих дней
      * @param calculator - калькулятор, вычисляющий сумму отпускных
      * @param minAvgSalary - минимальная средняя заработанная плата за год

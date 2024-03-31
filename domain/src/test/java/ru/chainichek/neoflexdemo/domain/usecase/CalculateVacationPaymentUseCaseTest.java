@@ -34,10 +34,6 @@ class CalculateVacationPaymentUseCaseTest {
                 minVacationDays);
     }
 
-    @BeforeAll
-    static void beforeAll() {
-    }
-
     @Test
     void calculate_whenStartsFromIsNull() {
         final double avgSalaryPerYear = 1000;
