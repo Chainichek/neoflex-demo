@@ -1,0 +1,12 @@
+# Preferences
+## Production Calendar API
+calculator.production-calendar.token =
+calculator.production-calendar.url = https://production-calendar.ru/get-period/
+## Constraints
+calculator.constraint.min-avg-salary = 1
+calculator.constraint.min-vacation-days = 1
+# Util
+## Docs
+springdoc.swagger-ui.path=/docs
+## Server
+server.port=8080
